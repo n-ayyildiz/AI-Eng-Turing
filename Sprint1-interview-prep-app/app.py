@@ -25,9 +25,6 @@ from exporter import build_html_report
 # CONFIGURATION
 # ----------------------------------------------------------------------
 load_dotenv()
-# Support both local .env and Streamlit Cloud secrets
-if "OPENAI_API_KEY" in st.secrets:
-    os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 st.set_page_config(
@@ -127,6 +124,15 @@ st.markdown("""
 
     /* Always keep the sidebar collapse/expand arrow visible */
     [data-testid="collapsedControl"] {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        z-index: 999 !important;
+    }
+
+    /* Ensure sidebar toggle button is always clickable */
+    button[kind="header"] {
         display: flex !important;
         visibility: visible !important;
         opacity: 1 !important;
