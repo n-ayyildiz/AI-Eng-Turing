@@ -32,6 +32,11 @@ st.set_page_config(
     page_icon="🎯",
     layout="wide",
     initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': None,
+        'Report a bug': None,
+        'About': None,
+    }
 )
 
 # ----------------------------------------------------------------------
@@ -122,20 +127,15 @@ st.markdown("""
     [data-testid="stToolbar"] { visibility: hidden; }
     [data-testid="stToolbar"]::before { visibility: visible; }
 
-    /* Always keep the sidebar collapse/expand arrow visible */
-    [data-testid="collapsedControl"] {
+    /* Always show sidebar toggle arrows */
+    [data-testid="collapsedControl"],
+    [data-testid="stSidebarCollapsedControl"] {
         display: flex !important;
         visibility: visible !important;
         opacity: 1 !important;
         pointer-events: auto !important;
-        z-index: 999 !important;
-    }
-
-    /* Ensure sidebar toggle button is always clickable */
-    button[kind="header"] {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
+        z-index: 9999 !important;
+        position: fixed !important;
     }
 </style>
 """, unsafe_allow_html=True)
