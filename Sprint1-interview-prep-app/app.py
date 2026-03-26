@@ -127,16 +127,9 @@ st.markdown("""
     [data-testid="stToolbar"] { visibility: hidden; }
     [data-testid="stToolbar"]::before { visibility: visible; }
 
-    /* Always show sidebar toggle arrows */
-    [data-testid="collapsedControl"],
-    [data-testid="stSidebarCollapsedControl"] {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        z-index: 9999 !important;
-        position: fixed !important;
-    }
+    /* Hide the sidebar collapse arrow so it can never be hidden */
+    [data-testid="stSidebarCollapseButton"] { display: none !important; }
+    button[data-testid="collapsedControl"] { display: none !important; }
 </style>
 """, unsafe_allow_html=True)
 
