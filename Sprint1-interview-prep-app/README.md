@@ -1,3 +1,9 @@
+## 🌐 Live Demo
+
+👉 [Click here to try the app](https://ai-eng-turing-ba2zwymwtxecturos9vona.streamlit.app/)
+
+---
+
 # 🎯 AI Interview Coach
 
 An AI-powered interview preparation app built with **Streamlit** and **OpenAI**. Practice real interview scenarios, get structured feedback on your answers, and track your progress — all in one place.
