@@ -24,18 +24,24 @@ An AI-powered interview preparation app built with **Streamlit** and **OpenAI**.
 - **Gap-focused questions** — when both are provided, the interview targets your weakest areas
 
 ### Five Prompt Styles
-Switch between interviewing styles from the sidebar to experience different feedback approaches:
+Switch between interviewing styles from the settings panel to experience different feedback approaches:
 - **Zero-Shot** — straightforward, instruction-based coaching
 - **Few-Shot** — anchored on examples for consistent formatting
 - **Chain-of-Thought** — step-by-step reasoning for deeper feedback
 - **Persona-Based** — choose a Friendly, Neutral, or Strict interviewer
 - **Structured Output** — template-driven format, ideal for job-specific sessions
 
-### Tunable Settings
-Adjust model behaviour from the sidebar:
+### Interview Setup
+Configure directly on the main page before starting:
+- **Job Role** — the position you are preparing for
+- **Interview Type** — Behavioral, Technical, or Mixed
+- **Difficulty** — Easy, Medium, or Hard
+- **Number of Questions** — 1 to 10
+
+### Advanced Settings
+Adjust model behaviour from the settings panel:
 - Choose from GPT-4.1, GPT-4.1 mini, GPT-4.1 nano, GPT-4o, GPT-4o mini
-- Temperature, Top-p, Max Tokens, Frequency Penalty
-- Number of questions per session (1–10)
+- Prompt Technique, Temperature, Top-p, Max Tokens, Frequency Penalty
 
 ### Session Export
 - Download a full **HTML report** at the end of each session
@@ -44,7 +50,13 @@ Adjust model behaviour from the sidebar:
 
 ### Cost Tracking
 - Live token cost per API call
-- Session total displayed in the sidebar
+- Session total displayed in the settings panel
+
+---
+
+## 🌐 Browser Compatibility
+
+Best experienced on **Firefox** or **Chrome**. Safari users may need to refresh the page if the settings panel is not visible on first load.
 
 ---
 

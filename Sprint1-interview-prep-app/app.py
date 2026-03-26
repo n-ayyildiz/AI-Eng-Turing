@@ -164,67 +164,44 @@ init_state()
 # SIDEBAR
 # ----------------------------------------------------------------------
 with st.sidebar:
-    st.markdown("## 🎯 Settings for Interview Coach")
-    st.caption(
-        "Configure your interview session below. "
-        "You can change any setting at any time — changes apply to the next API call."
-    )
-    st.markdown("---")
-
-    st.markdown("### 🗂️ Interview Setup")
-    st.caption("Set the role, type, and difficulty to tailor questions to your target position.")
-    role = st.text_input("Job Role", placeholder="e.g. Data Scientist, Backend Engineer",
-        help="The job title you are preparing to interview for.")
-    interview_type = st.selectbox("Interview Type",
-        ["Behavioral", "Technical", "Mixed (Behavioral + Technical)"],
-        help="Behavioral focuses on soft skills and past experience. Technical tests domain knowledge and problem-solving.")
-    difficulty = st.selectbox("Difficulty Level", ["Easy", "Medium", "Hard"], index=1,
-        help="Easy = entry-level, Medium = mid-level, Hard = senior/lead.")
-
-    st.markdown("---")
+    st.markdown("## ⚙️ Settings for Interview Coach")
     st.markdown("### 🧠 Prompt Technique")
-    st.caption("Each technique instructs the AI differently. Try switching between them to compare how feedback style changes.")
     technique_label = st.selectbox("Select Technique", list(PROMPT_TECHNIQUES.keys()))
     st.caption(TECHNIQUE_EXPLANATIONS[technique_label])
-
     persona_key = "Neutral 😐"
     if technique_label == "Persona-Based":
-        st.caption("Choose how the interviewer behaves — friendly encouragement, balanced objectivity, or strict high standards.")
-        persona_key = st.selectbox("Interviewer Persona", list(PERSONAS.keys()), index=1)
-
-    st.markdown("---")
-    st.markdown("### ⚙️ Model & Parameters")
-    st.caption("These control how the AI generates responses. Experiment to see how each setting affects feedback quality.")
+        persona_key = st.selectbox("Interviewer Persona", list(PERSONAS.keys()), index=1,
+            help="Friendly = encouraging, Neutral = balanced, Strict = demanding.")
+    st.markdown("### 🤖 Model & Parameters")
     model = st.selectbox("Model",
         ["gpt-4.1-mini", "gpt-4.1-nano", "gpt-4.1", "gpt-4o", "gpt-4o-mini"], index=0,
-        help="gpt-4.1-mini offers strong quality at low cost. gpt-4.1 is the most capable but slower and more expensive.")
+        help="gpt-4.1-mini offers strong quality at low cost.")
     temperature = st.slider("Temperature", 0.0, 2.0, 0.4, 0.05,
-        help="Controls creativity. Low (0.2–0.4) = consistent and focused. High (0.8–1.2) = varied and creative. Recommended: 0.4 for consistent scoring.")
+        help="Low = consistent scoring. Recommended: 0.4.")
     top_p = st.slider("Top-p", 0.1, 1.0, 0.9, 0.05,
-        help="Controls vocabulary diversity. 0.9 means the model considers the top 90% of likely words. Recommended: 0.9.")
+        help="Controls vocabulary diversity. Recommended: 0.9.")
     max_tokens = st.slider("Max Response Tokens", 200, 1500, 700, 50,
-        help="Maximum length of each AI response. Higher = more detailed feedback but slower and more costly.")
+        help="Higher = more detailed feedback but slower.")
     frequency_penalty = st.slider("Frequency Penalty", 0.0, 2.0, 0.3, 0.1,
-        help="Reduces repetition. 0.3 gently discourages the model from repeating the same phrases. Recommended: 0.3.")
-
-    st.markdown("---")
-    st.markdown("### 🎯 Session Settings")
-    st.caption("Set how many questions you want in this session. Fewer = quick warmup. More = full mock interview.")
-    total_questions = st.slider("Number of Questions", 1, 10, 4, 1)
-
-    st.markdown("---")
+        help="Reduces repetition. Recommended: 0.3.")
     st.markdown("### 💰 Session Cost")
-    st.caption("Estimated cost of API calls made in this session based on tokens used.")
     if st.session_state["cost_log"]:
         st.markdown(format_session_cost(st.session_state["cost_log"]))
     else:
         st.caption("Cost will appear after the first API call.")
-
     st.markdown("---")
     if st.button("🔄 Reset Everything", use_container_width=True):
         for key in list(st.session_state.keys()):
             del st.session_state[key]
         st.rerun()
+
+# Interview setup variables — read from session state after interview starts
+# Before start: set by widgets on the main page
+# After start: persisted in session state
+role = st.session_state.get("role", "")
+interview_type = st.session_state.get("interview_type", "Behavioral")
+difficulty = st.session_state.get("difficulty", "Medium")
+total_questions = st.session_state.get("total_questions", 4)
 
 # ----------------------------------------------------------------------
 # HELPERS
@@ -355,7 +332,7 @@ st.markdown(
 )
 st.markdown(
     "<p style='color:#555;margin-top:4px;font-size:0.95rem;'>"
-    "Practice interviews with AI-powered feedback — scored, structured, and honest.</p>",
+    "Practice interviews with AI-powered feedback & suggestions — scored, structured, and practical.</p>",
     unsafe_allow_html=True,
 )
 
@@ -363,36 +340,41 @@ st.markdown(
 # SECTION 1 — SETUP
 # ======================================================================
 if not st.session_state["interview_started"]:
-    st.markdown(
-        "<p style='color:#555;font-size:0.92rem;margin-bottom:12px;'>"
-        "Optionally paste a <strong>job description</strong> and/or upload your <strong>CV</strong> "
-        "— the AI will silently use them to ask targeted questions. Both are optional.</p>",
-        unsafe_allow_html=True,
-    )
+    # --- Row 1: Job Role, Interview Type, Difficulty, No. of Questions ---
+    col1, col2, col3, col4 = st.columns([3, 3, 3, 1.5])
+    with col1:
+        role = st.text_input("🧑‍💼 Job Role",
+            placeholder="e.g. Data Scientist",
+            help="The job title you are preparing to interview for.")
+    with col2:
+        interview_type = st.selectbox("🎙️ Interview Type",
+            ["Behavioral", "Technical", "Mixed (Behavioral + Technical)"],
+            help="Behavioral = soft skills. Technical = domain knowledge.")
+    with col3:
+        difficulty = st.selectbox("📊 Difficulty",
+            ["Easy", "Medium", "Hard"], index=1,
+            help="Easy = entry-level, Medium = mid-level, Hard = senior/lead.")
+    with col4:
+        total_questions = st.selectbox("🔢 Questions",
+            options=list(range(1, 11)),
+            index=3,
+            help="How many questions in this session (1–10).")
+
+    st.markdown("---")
 
     col1, col2 = st.columns(2)
     with col1:
         st.markdown("**📄 Job Description** *(optional)*")
         jd_input = st.text_area("jd", placeholder="Paste the job posting here...",
-            height=180, label_visibility="collapsed")
+            height=160, label_visibility="collapsed")
     with col2:
         st.markdown("**📁 Your CV** *(optional)*")
         cv_file = st.file_uploader("cv", type=["pdf", "docx"], label_visibility="collapsed")
         st.caption("PDF or Word (.docx) — max 5 MB")
 
-    col_a, col_b, col_c, col_d = st.columns(4)
-    with col_a:
-        st.markdown(f"<small><b>Role:</b> {role or '*not set*'}</small>", unsafe_allow_html=True)
-    with col_b:
-        st.markdown(f"<small><b>Type:</b> {interview_type}</small>", unsafe_allow_html=True)
-    with col_c:
-        st.markdown(f"<small><b>Difficulty:</b> {difficulty}</small>", unsafe_allow_html=True)
-    with col_d:
-        st.markdown(f"<small><b>Questions:</b> {total_questions}</small>", unsafe_allow_html=True)
-
     if st.button("🚀 Start Interview"):
         if not role.strip():
-            st.warning("⚠️ Please enter a job role in the sidebar before starting.")
+            st.warning("⚠️ Please enter a job role before starting.")
         else:
             # Validate inputs
             if jd_input.strip():
@@ -406,8 +388,12 @@ if not st.session_state["interview_started"]:
                     st.error(cv_err)
                     st.stop()
 
-            st.session_state["jd_text"] = jd_input.strip()
+            # Persist setup values to session state
+            st.session_state["role"] = role
+            st.session_state["interview_type"] = interview_type
+            st.session_state["difficulty"] = difficulty
             st.session_state["total_questions"] = total_questions
+            st.session_state["jd_text"] = jd_input.strip()
 
             if cv_file:
                 st.session_state["_cv_bytes"] = cv_file.getvalue()
@@ -498,12 +484,6 @@ if st.session_state["interview_started"] and not st.session_state["interview_don
                 f"consider improving your answer!</div>",
                 unsafe_allow_html=True,
             )
-
-        st.markdown(
-            "<p style='color:#555;font-size:0.9rem;margin:12px 0 8px;'>"
-            "<strong>What would you like to do?</strong></p>",
-            unsafe_allow_html=True,
-        )
 
         show_improve = last_score is None or last_score < 10
 
@@ -660,12 +640,7 @@ if st.session_state["interview_started"] and not st.session_state["interview_don
             st.session_state["is_final_answer"] = False
             st.rerun()
 
-    st.markdown("---")
-    st.markdown(
-        f"<small style='color:#888;'>Technique: {technique_label} | "
-        f"Model: {model} | Temp: {temperature} | Top-p: {top_p}</small>",
-        unsafe_allow_html=True,
-    )
+
 
 # ======================================================================
 # SECTION 3 — SUMMARY
@@ -689,7 +664,6 @@ if st.session_state["interview_done"]:
     with col3:
         st.metric("Questions Completed", len(scores))
 
-    st.markdown("")
     if avg_score >= 8:
         msg, c = "🌟 Outstanding! You're well-prepared for this interview.", "#005a8e"
     elif avg_score >= 6:
@@ -742,8 +716,7 @@ if st.session_state["interview_done"]:
         )
 
     st.markdown("---")
-    st.markdown("**📥 Export Your Session Report**")
-    st.markdown("Download a full report — questions, all answers, feedback, and scores.")
+    st.markdown("**📥 Download Session Report**")
 
     html_report = build_html_report(
         role=role,
@@ -762,7 +735,6 @@ if st.session_state["interview_done"]:
         data=html_report, file_name=filename, mime="text/html",
     )
 
-    st.markdown("")
     if st.button("🔄 Start a New Session"):
         for key in list(st.session_state.keys()):
             del st.session_state[key]
