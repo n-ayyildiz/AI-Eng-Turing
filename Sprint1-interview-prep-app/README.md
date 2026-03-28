@@ -6,7 +6,7 @@
 
 # 🎯 AI Interview Coach
 
-An AI-powered interview preparation app built with **Streamlit** and **OpenAI**. Practice real interview scenarios, get structured feedback on your answers, and track your progress — all in one place.
+An AI-powered interview preparation app built with **Streamlit** and **OpenAI**, developed with assistance from **Claude (Anthropic)**. Practice real interview scenarios, get structured feedback on your answers, and track your progress — all in one place.
 
 ---
 
