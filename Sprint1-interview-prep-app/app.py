@@ -372,6 +372,17 @@ if not st.session_state["interview_started"]:
         cv_file = st.file_uploader("cv", type=["pdf", "docx"], label_visibility="collapsed")
         st.caption("PDF or Word (.docx) — max 5 MB")
 
+    st.markdown(
+        "<div style='background:#fff8e1;border-left:4px solid #E69F00;"
+        "border-radius:8px;padding:10px 16px;margin:8px 0;font-size:0.82rem;color:#7a5000;'>"
+        "🔒 <strong>Privacy Notice:</strong> Any job description or CV content you provide "
+        "will be sent to the OpenAI API for analysis. Please do not upload documents containing "
+        "sensitive personal information. This app is a demo project and is not intended for "
+        "production use. By clicking Start Interview you acknowledge this."
+        "</div>",
+        unsafe_allow_html=True,
+    )
+
     if st.button("🚀 Start Interview"):
         if not role.strip():
             st.warning("⚠️ Please enter a job role before starting.")

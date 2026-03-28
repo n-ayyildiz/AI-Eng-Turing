@@ -104,6 +104,12 @@ interview-prep-app/
 
 ---
 
+## 🔒 Privacy Notice
+
+Any job description or CV content submitted through this app is sent to the OpenAI API for analysis. Please do not upload documents containing sensitive personal information. This app is a demo/educational project and is not intended for production use. Users submit content at their own discretion.
+
+---
+
 ## ⚠️ Known Limitations
 
 - **Score variability** — the same answer may receive slightly different scores across sessions due to model non-determinism
@@ -118,7 +124,7 @@ interview-prep-app/
 - LLM-as-a-judge for objective, reproducible scoring
 - Audio input for verbal answer practice
 - Multilingual support
-- Cloud deployment (Streamlit Cloud, AWS, or Azure)
+- Extended cloud deployment (AWS or Azure) for production-grade scalability
 
 ---
 
