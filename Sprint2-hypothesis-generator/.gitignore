@@ -1,12 +1,30 @@
+# macOS
+.DS_Store
+
+# environment and secrets
 .env
 .env.*
 !.env.example
+secrets.json
+credentials.json
+*.pem
+*.key
+
+# python
 __pycache__/
 *.py[cod]
 .venv/
 venv/
+env/
+
+# jupyter
 .ipynb_checkpoints/
+
+# editors
 .vscode/
 .idea/
-.DS_Store
-Thumbs.db
+
+# local/generated data
+chroma_db/
+chroma_db_statuses.json
+evaluation_results.json
