@@ -1,0 +1,70 @@
+{
+  "temporal_counts": {
+    "past": 126,
+    "future": 12,
+    "neutral": 6,
+    "total": 144
+  },
+  "papers": [
+    {
+      "paper_id": "Ferguson-2023-Low-High-Density-Lipoprotein",
+      "status": "partial",
+      "chunk_count": 11,
+      "sections_found": {
+        "abstract": true,
+        "introduction": true,
+        "discussion": true,
+        "limitations_future": false
+      },
+      "note": "Used fallback for: limitations_future"
+    },
+    {
+      "paper_id": "Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis",
+      "status": "partial",
+      "chunk_count": 18,
+      "sections_found": {
+        "abstract": true,
+        "introduction": true,
+        "discussion": true,
+        "limitations_future": false
+      },
+      "note": "Used fallback for: limitations_future"
+    },
+    {
+      "paper_id": "Wu-2019-Prediction_Alzheimers_disease_LDL",
+      "status": "partial",
+      "chunk_count": 22,
+      "sections_found": {
+        "abstract": true,
+        "introduction": true,
+        "discussion": true,
+        "limitations_future": false
+      },
+      "note": "Used fallback for: limitations_future"
+    },
+    {
+      "paper_id": "Zhou-2020-Low-Density-Lipoprotein-Cholesterol",
+      "status": "ingested",
+      "chunk_count": 33,
+      "sections_found": {
+        "abstract": true,
+        "introduction": true,
+        "discussion": true,
+        "limitations_future": true
+      },
+      "note": ""
+    },
+    {
+      "paper_id": "de-Oliveira-2011-LDL-cognitive-positive",
+      "status": "partial",
+      "chunk_count": 60,
+      "sections_found": {
+        "abstract": true,
+        "introduction": false,
+        "discussion": true,
+        "limitations_future": false
+      },
+      "note": "Used fallback for: introduction, limitations_future"
+    }
+  ]
+}

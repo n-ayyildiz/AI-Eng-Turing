@@ -1,0 +1,390 @@
+{
+  "summary": {
+    "total_cases": 12,
+    "passed": 10,
+    "failed": 2,
+    "pass_rate": 0.83,
+    "ragas_scores": {
+      "faithfulness": 0.145,
+      "answer_relevancy": 0.771
+    },
+    "overall_plausibility_avg": 4.2
+  },
+  "cases": [
+    {
+      "case_id": 1,
+      "category": "direct_retrieval",
+      "query": "LDL cholesterol and Alzheimer's disease risk",
+      "retrieved_papers": [
+        "Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis",
+        "de-Oliveira-2011-LDL-cognitive-positive",
+        "Wu-2019-Prediction_Alzheimers_disease_LDL",
+        "Zhou-2020-Low-Density-Lipoprotein-Cholesterol"
+      ],
+      "avg_rrf_score": 0.0212,
+      "hypothesis": "In older adults with a genetic predisposition to hypercholesterolemia, elevated LDL cholesterol levels will correlate with increased amyloid-beta deposition in the hippocampus, as measured by PET imaging, suggesting a mechanistic link between lipid metabolism and Alzheimer's pathology.",
+      "supported_by": [
+        "Ferguson-2023-Low-High-Density-Lipoprotein",
+        "Wu-2019-Prediction_Alzheimers_disease_LDL"
+      ],
+      "originality_score": 0.23658375014279132,
+      "literature_gap_score": 0.39,
+      "plausibility_scores": {
+        "novelty": 4,
+        "testability": 5,
+        "mechanistic_coherence": 4,
+        "citation_traceability": 5,
+        "conflict_awareness": 3,
+        "usefulness": 5,
+        "verdict": "The hypothesis is well-structured and offers a promising direction for future research, though it could benefit from a more nuanced discussion of conflicting evidence.",
+        "average_score": 4.33
+      },
+      "pass_criteria": "Retrieves chunks from at least one expected paper with RRF score above 0.01",
+      "passed": true,
+      "pass_reason": "Expected {'Wu-2019-Prediction_Alzheimers_disease_LDL', 'Zhou-2020-Low-Density-Lipoprotein-Cholesterol'}, retrieved {'de-Oliveira-2011-LDL-cognitive-positive', 'Wu-2019-Prediction_Alzheimers_disease_LDL', 'Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis', 'Zhou-2020-Low-Density-Lipoprotein-Cholesterol'}. Overlap found.",
+      "elapsed_seconds": 17.4
+    },
+    {
+      "case_id": 2,
+      "category": "direct_retrieval",
+      "query": "HDL cholesterol and dementia over time",
+      "retrieved_papers": [
+        "Ferguson-2023-Low-High-Density-Lipoprotein",
+        "Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis"
+      ],
+      "avg_rrf_score": 0.0312,
+      "hypothesis": "In older adults with mild cognitive impairment, variations in HDL cholesterol levels will correlate with changes in cerebrospinal fluid biomarkers of neuroinflammation, specifically in the hippocampus, suggesting a neuroprotective role of HDL against dementia progression over time.",
+      "supported_by": [
+        "Ferguson-2023-Low-High-Density-Lipoprotein",
+        "Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis"
+      ],
+      "originality_score": 0.30396867456540866,
+      "literature_gap_score": 0.369,
+      "plausibility_scores": {
+        "novelty": 4,
+        "testability": 5,
+        "mechanistic_coherence": 4,
+        "citation_traceability": 4,
+        "conflict_awareness": 3,
+        "usefulness": 5,
+        "verdict": "The hypothesis is well-structured and offers a promising direction for future research, though it could benefit from a more thorough acknowledgment of existing contradictions in the literature.",
+        "average_score": 4.17
+      },
+      "pass_criteria": "Retrieves chunks from Ferguson-2023 with RRF score above 0.01",
+      "passed": true,
+      "pass_reason": "Expected {'Ferguson-2023-Low-High-Density-Lipoprotein'}, retrieved {'Ferguson-2023-Low-High-Density-Lipoprotein', 'Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis'}. Overlap found.",
+      "elapsed_seconds": 17.6
+    },
+    {
+      "case_id": 3,
+      "category": "direct_retrieval",
+      "query": "27-hydroxycholesterol and CSF biomarkers in mild cognitive impairment",
+      "retrieved_papers": [
+        "Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis"
+      ],
+      "avg_rrf_score": 0.0311,
+      "hypothesis": "In a population of individuals with mild cognitive impairment, variations in 27-hydroxycholesterol levels will correlate with specific cerebrospinal fluid biomarkers of neuroinflammation, such as IL-6 and TNF-alpha, suggesting a novel inflammatory mechanism linking cholesterol metabolism to cognitive decline.",
+      "supported_by": [
+        "Ferguson-2023-Low-High-Density-Lipoprotein",
+        "Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis"
+      ],
+      "originality_score": 0.2512451136522489,
+      "literature_gap_score": 0.415,
+      "plausibility_scores": {
+        "novelty": 4,
+        "testability": 5,
+        "mechanistic_coherence": 4,
+        "citation_traceability": 4,
+        "conflict_awareness": 3,
+        "usefulness": 5,
+        "verdict": "The hypothesis presents a novel and testable idea that connects cholesterol metabolism to cognitive decline through neuroinflammation, making it a valuable direction for future research.",
+        "average_score": 4.17
+      },
+      "pass_criteria": "Retrieves chunks from Wang-2016 with RRF score above 0.01",
+      "passed": true,
+      "pass_reason": "Expected {'Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis'}, retrieved {'Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis'}. Overlap found.",
+      "elapsed_seconds": 18.6
+    },
+    {
+      "case_id": 4,
+      "category": "direct_retrieval",
+      "query": "hypercholesterolemia and mitochondrial dysfunction in mice",
+      "retrieved_papers": [
+        "de-Oliveira-2011-LDL-cognitive-positive"
+      ],
+      "avg_rrf_score": 0.0259,
+      "hypothesis": "In mice with induced hypercholesterolemia, the administration of HDL-C mimetics will enhance mitochondrial function in the hippocampus, leading to improved cognitive performance as measured by spatial memory tasks.",
+      "supported_by": [
+        "Ferguson-2023-Low-High-Density-Lipoprotein",
+        "Zhou-2020-Low-Density-Lipoprotein-Cholesterol"
+      ],
+      "originality_score": 0.4032165190322975,
+      "literature_gap_score": 0.375,
+      "plausibility_scores": {
+        "novelty": 4,
+        "testability": 5,
+        "mechanistic_coherence": 4,
+        "citation_traceability": 5,
+        "conflict_awareness": 3,
+        "usefulness": 5,
+        "verdict": "The hypothesis is well-structured and offers a clear direction for future research, though it could benefit from a more thorough acknowledgment of existing uncertainties.",
+        "average_score": 4.33
+      },
+      "pass_criteria": "Retrieves chunks from de-Oliveira-2011 with RRF score above 0.01",
+      "passed": true,
+      "pass_reason": "Expected {'de-Oliveira-2011-LDL-cognitive-positive'}, retrieved {'de-Oliveira-2011-LDL-cognitive-positive'}. Overlap found.",
+      "elapsed_seconds": 18.2
+    },
+    {
+      "case_id": 5,
+      "category": "cross_paper_synthesis",
+      "query": "link between peripheral LDL levels and brain cholesterol metabolites in Alzheimer's disease",
+      "retrieved_papers": [
+        "de-Oliveira-2011-LDL-cognitive-positive",
+        "Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis",
+        "Zhou-2020-Low-Density-Lipoprotein-Cholesterol"
+      ],
+      "avg_rrf_score": 0.0208,
+      "hypothesis": "In individuals with Alzheimer's disease, elevated peripheral LDL levels will correlate with increased levels of specific brain cholesterol metabolites (such as 24S-hydroxycholesterol) in the prefrontal cortex, suggesting a dysregulated cholesterol transport mechanism that exacerbates neurodegeneration.",
+      "supported_by": [
+        "Ferguson-2023-Low-High-Density-Lipoprotein",
+        "Zhou-2020-Low-Density-Lipoprotein-Cholesterol"
+      ],
+      "originality_score": 0.27159803302758245,
+      "literature_gap_score": 0.356,
+      "plausibility_scores": {
+        "novelty": 4,
+        "testability": 5,
+        "mechanistic_coherence": 4,
+        "citation_traceability": 5,
+        "conflict_awareness": 3,
+        "usefulness": 5,
+        "verdict": "The hypothesis is strong, proposing a novel and testable link between peripheral LDL levels and brain cholesterol metabolites in Alzheimer's disease, with good citation support and practical implications for future research.",
+        "average_score": 4.33
+      },
+      "pass_criteria": "Retrieves chunks from at least 2 expected papers; hypothesis cites both",
+      "passed": true,
+      "pass_reason": "Expected {'Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis', 'Zhou-2020-Low-Density-Lipoprotein-Cholesterol'}, retrieved {'de-Oliveira-2011-LDL-cognitive-positive', 'Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis', 'Zhou-2020-Low-Density-Lipoprotein-Cholesterol'}. Overlap found.",
+      "elapsed_seconds": 15.4
+    },
+    {
+      "case_id": 6,
+      "category": "cross_paper_synthesis",
+      "query": "age and statin use as moderators of the LDL-dementia relationship",
+      "retrieved_papers": [
+        "Ferguson-2023-Low-High-Density-Lipoprotein",
+        "Zhou-2020-Low-Density-Lipoprotein-Cholesterol"
+      ],
+      "avg_rrf_score": 0.0264,
+      "hypothesis": "In older adults with elevated LDL-C levels, statin use may reduce the risk of dementia by modulating neuroinflammatory markers in the prefrontal cortex, compared to non-statin users, suggesting a neuroprotective mechanism linked to cholesterol metabolism.",
+      "supported_by": [
+        "Ferguson-2023-Low-High-Density-Lipoprotein",
+        "Wu-2019-Prediction_Alzheimers_disease_LDL"
+      ],
+      "originality_score": 0.3351714260364631,
+      "literature_gap_score": 0.304,
+      "plausibility_scores": {
+        "novelty": 4,
+        "testability": 5,
+        "mechanistic_coherence": 4,
+        "citation_traceability": 4,
+        "conflict_awareness": 3,
+        "usefulness": 5,
+        "verdict": "The hypothesis is well-structured and offers a promising direction for future research, though it could benefit from a more thorough acknowledgment of existing uncertainties.",
+        "average_score": 4.17
+      },
+      "pass_criteria": "Retrieves chunks from at least 2 expected papers; hypothesis mentions moderating variables",
+      "passed": true,
+      "pass_reason": "Expected {'Ferguson-2023-Low-High-Density-Lipoprotein', 'Wu-2019-Prediction_Alzheimers_disease_LDL', 'Zhou-2020-Low-Density-Lipoprotein-Cholesterol'}, retrieved {'Ferguson-2023-Low-High-Density-Lipoprotein', 'Zhou-2020-Low-Density-Lipoprotein-Cholesterol'}. Overlap found.",
+      "elapsed_seconds": 15.8
+    },
+    {
+      "case_id": 7,
+      "category": "cross_paper_synthesis",
+      "query": "oxidative stress as mechanism connecting hypercholesterolemia to cognitive impairment",
+      "retrieved_papers": [
+        "de-Oliveira-2011-LDL-cognitive-positive"
+      ],
+      "avg_rrf_score": 0.0235,
+      "hypothesis": "In a cohort of middle-aged individuals with hypercholesterolemia, increased oxidative stress levels, as measured by elevated 8-hydroxy-2'-deoxyguanosine (8-OHdG) in plasma, will correlate with reduced functional connectivity in the default mode network, predicting cognitive decline over a two-year period.",
+      "supported_by": [
+        "Ferguson-2023-Low-High-Density-Lipoprotein",
+        "Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis"
+      ],
+      "originality_score": 0.39773466219064657,
+      "literature_gap_score": 0.385,
+      "plausibility_scores": {
+        "novelty": 4,
+        "testability": 5,
+        "mechanistic_coherence": 4,
+        "citation_traceability": 4,
+        "conflict_awareness": 3,
+        "usefulness": 5,
+        "verdict": "The hypothesis is well-structured and offers a clear direction for future research, though it could benefit from a more thorough acknowledgment of conflicting evidence.",
+        "average_score": 4.17
+      },
+      "pass_criteria": "Retrieves chunks from at least one expected paper; hypothesis proposes mechanistic link",
+      "passed": true,
+      "pass_reason": "Expected {'de-Oliveira-2011-LDL-cognitive-positive', 'Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis'}, retrieved {'de-Oliveira-2011-LDL-cognitive-positive'}. Overlap found.",
+      "elapsed_seconds": 16.8
+    },
+    {
+      "case_id": 8,
+      "category": "hypothesis_generation",
+      "query": "LDL and brain atrophy",
+      "retrieved_papers": [
+        "de-Oliveira-2011-LDL-cognitive-positive",
+        "Wu-2019-Prediction_Alzheimers_disease_LDL",
+        "Zhou-2020-Low-Density-Lipoprotein-Cholesterol"
+      ],
+      "avg_rrf_score": 0.0208,
+      "hypothesis": "Increased serum LDL-C levels are associated with elevated markers of oxidative stress in the prefrontal cortex, which in turn predicts greater brain atrophy in older adults with mild cognitive impairment.",
+      "supported_by": [
+        "Ferguson-2023-Low-High-Density-Lipoprotein",
+        "Wu-2019-Prediction_Alzheimers_disease_LDL"
+      ],
+      "originality_score": 0.29809149420277536,
+      "literature_gap_score": 0.347,
+      "plausibility_scores": {
+        "novelty": 4,
+        "testability": 5,
+        "mechanistic_coherence": 4,
+        "citation_traceability": 5,
+        "conflict_awareness": 3,
+        "usefulness": 5,
+        "verdict": "The hypothesis presents a novel and testable framework linking LDL-C levels, oxidative stress, and brain atrophy, making it a valuable direction for future research.",
+        "average_score": 4.33
+      },
+      "pass_criteria": "Hypothesis is specific, testable, and cites at least one expected paper",
+      "passed": true,
+      "pass_reason": "Expected {'Ferguson-2023-Low-High-Density-Lipoprotein', 'Zhou-2020-Low-Density-Lipoprotein-Cholesterol'}, retrieved {'de-Oliveira-2011-LDL-cognitive-positive', 'Wu-2019-Prediction_Alzheimers_disease_LDL', 'Zhou-2020-Low-Density-Lipoprotein-Cholesterol'}. Overlap found.",
+      "elapsed_seconds": 14.9
+    },
+    {
+      "case_id": 9,
+      "category": "hypothesis_generation",
+      "query": "oxysterol metabolism and hippocampal neurodegeneration",
+      "retrieved_papers": [
+        "de-Oliveira-2011-LDL-cognitive-positive",
+        "Zhou-2020-Low-Density-Lipoprotein-Cholesterol"
+      ],
+      "avg_rrf_score": 0.026,
+      "hypothesis": "Increased levels of specific oxysterol metabolites in the hippocampus are predictive of neurodegeneration in diverse populations with varying HDL-C levels, and this relationship can be quantified using advanced imaging techniques and cerebrospinal fluid biomarker analysis.",
+      "supported_by": [
+        "Ferguson-2023-Low-High-Density-Lipoprotein",
+        "Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis"
+      ],
+      "originality_score": 0.30398243266579594,
+      "literature_gap_score": 0.329,
+      "plausibility_scores": {
+        "novelty": 4,
+        "testability": 5,
+        "mechanistic_coherence": 4,
+        "citation_traceability": 4,
+        "conflict_awareness": 3,
+        "usefulness": 5,
+        "verdict": "The hypothesis is strong, proposing a novel and testable relationship that is relevant to existing literature, though it could better address potential conflicts in the evidence.",
+        "average_score": 4.17
+      },
+      "pass_criteria": "Hypothesis mentions oxysterols or cholesterol metabolites with mechanistic specificity",
+      "passed": true,
+      "pass_reason": "Expected {'de-Oliveira-2011-LDL-cognitive-positive', 'Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis'}, retrieved {'de-Oliveira-2011-LDL-cognitive-positive', 'Zhou-2020-Low-Density-Lipoprotein-Cholesterol'}. Overlap found.",
+      "elapsed_seconds": 16.6
+    },
+    {
+      "case_id": 10,
+      "category": "negative_control",
+      "query": "role of microglial synaptic pruning in schizophrenia",
+      "retrieved_papers": [
+        "de-Oliveira-2011-LDL-cognitive-positive",
+        "Zhou-2020-Low-Density-Lipoprotein-Cholesterol"
+      ],
+      "avg_rrf_score": 0.0285,
+      "hypothesis": "In patients with schizophrenia, variations in HDL-C levels will correlate with altered microglial activity and synaptic pruning in the prefrontal cortex, as measured by imaging techniques and inflammatory biomarkers.",
+      "supported_by": [
+        "Ferguson-2023-Low-High-Density-Lipoprotein",
+        "Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis"
+      ],
+      "originality_score": 0.431540617694928,
+      "literature_gap_score": 0.381,
+      "plausibility_scores": {
+        "novelty": 4,
+        "testability": 5,
+        "mechanistic_coherence": 4,
+        "citation_traceability": 3,
+        "conflict_awareness": 2,
+        "usefulness": 5,
+        "verdict": "The hypothesis presents a novel and testable idea that could significantly advance research on schizophrenia, though it could better address existing conflicts in the literature.",
+        "average_score": 3.83
+      },
+      "pass_criteria": "Average RRF score of retrieved chunks below 0.02 OR LLM judge citation_traceability score <= 2",
+      "passed": false,
+      "pass_reason": "Avg RRF=0.0285 (threshold <0.02), citation_traceability=3 (threshold <=2). FAIL \u2014 system retrieved relevant-looking chunks for out-of-corpus query.",
+      "elapsed_seconds": 17.4
+    },
+    {
+      "case_id": 11,
+      "category": "negative_control",
+      "query": "role of BDNF signalling in depression and hippocampal neurogenesis",
+      "retrieved_papers": [
+        "de-Oliveira-2011-LDL-cognitive-positive",
+        "Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis",
+        "Zhou-2020-Low-Density-Lipoprotein-Cholesterol"
+      ],
+      "avg_rrf_score": 0.0238,
+      "hypothesis": "Increased levels of HDL-C will enhance BDNF signaling in the hippocampus, leading to improved neurogenesis and a reduction in depressive symptoms in middle-aged adults, particularly in those with a genetic predisposition to depression.",
+      "supported_by": [
+        "Ferguson-2023-Low-High-Density-Lipoprotein",
+        "Wang-2016-Cog-Impairment-Alzheimers-Meta-Analysis"
+      ],
+      "originality_score": 0.515688013874211,
+      "literature_gap_score": 0.4,
+      "plausibility_scores": {
+        "novelty": 4,
+        "testability": 5,
+        "mechanistic_coherence": 4,
+        "citation_traceability": 4,
+        "conflict_awareness": 3,
+        "usefulness": 5,
+        "verdict": "The hypothesis is well-structured and offers a promising direction for future research, though it could benefit from a more thorough acknowledgment of existing contradictions in the evidence.",
+        "average_score": 4.17
+      },
+      "pass_criteria": "Average RRF score of retrieved chunks below 0.02 OR LLM judge citation_traceability score <= 2",
+      "passed": false,
+      "pass_reason": "Avg RRF=0.0238 (threshold <0.02), citation_traceability=4 (threshold <=2). FAIL \u2014 system retrieved relevant-looking chunks for out-of-corpus query.",
+      "elapsed_seconds": 13.4
+    },
+    {
+      "case_id": 12,
+      "category": "conflicting_evidence",
+      "query": "Is high LDL consistently protective against dementia?",
+      "retrieved_papers": [
+        "de-Oliveira-2011-LDL-cognitive-positive",
+        "Ferguson-2023-Low-High-Density-Lipoprotein",
+        "Zhou-2020-Low-Density-Lipoprotein-Cholesterol"
+      ],
+      "avg_rrf_score": 0.0185,
+      "hypothesis": "In a population of middle-aged individuals with a genetic predisposition to hyperlipidemia, high LDL levels may enhance synaptic plasticity in the hippocampus, leading to a reduced incidence of dementia as measured by neuroimaging biomarkers of neurodegeneration.",
+      "supported_by": [
+        "Ferguson-2023-Low-High-Density-Lipoprotein",
+        "Wu-2019-Prediction_Alzheimers_disease_LDL"
+      ],
+      "originality_score": 0.34468634756392014,
+      "literature_gap_score": 0.405,
+      "plausibility_scores": {
+        "novelty": 4,
+        "testability": 5,
+        "mechanistic_coherence": 4,
+        "citation_traceability": 4,
+        "conflict_awareness": 3,
+        "usefulness": 5,
+        "verdict": "The hypothesis presents a novel and testable idea that could significantly impact future research on the relationship between LDL levels and dementia.",
+        "average_score": 4.17
+      },
+      "pass_criteria": "LLM judge conflict_awareness score >= 3 \u2014 hypothesis acknowledges heterogeneity in evidence",
+      "passed": true,
+      "pass_reason": "conflict_awareness=3 (threshold >=3). PASS \u2014 hypothesis acknowledges uncertainty.",
+      "elapsed_seconds": 16.9
+    }
+  ]
+}
