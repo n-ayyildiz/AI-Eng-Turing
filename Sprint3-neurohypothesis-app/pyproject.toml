@@ -1,0 +1,84 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "neurohypothesis-v2"
+version = "2.2.0"
+description = "Neurohypothesis — Neuroscience Hypothesis Generation Agent (three paths: PDF-only incremental gap-pair rotation, per-category PubMed, combined; deterministic)"
+authors = [{ name = "Nazife Ayyildiz" }]
+requires-python = ">=3.12"
+dependencies = [
+    # ── Core framework ──────────────────────────────────────────────────────
+    "langgraph>=0.2.0",
+    "langchain>=0.3.0",
+    "langchain-openai>=0.2.0",
+    "langchain-chroma>=0.1.4",
+    "langchain-community>=0.3.0",
+    "langchain-text-splitters>=0.3.0",
+
+    # ── LLM / embeddings provider ───────────────────────────────────────────
+    "openai>=1.50.0",
+
+    # ── Vector store ────────────────────────────────────────────────────────
+    "chromadb>=0.5.0",
+
+    # ── PDF processing ──────────────────────────────────────────────────────
+    "pypdf>=4.0.0",
+    "reportlab>=4.0.0",          # PDF export
+
+    # ── Retrieval ───────────────────────────────────────────────────────────
+    "rank-bm25>=0.2.2",
+
+    # ── HTTP client (PubMed E-utilities, with retry transport) ───────────────
+    "httpx>=0.27.0",
+
+    # ── Data validation ─────────────────────────────────────────────────────
+    "pydantic>=2.7.0",
+
+    # ── Numerical / ML ──────────────────────────────────────────────────────
+    "numpy>=1.26.0",
+    "tiktoken>=0.7.0",           # token counting for cost tracking
+
+    # ── UI ──────────────────────────────────────────────────────────────────
+    "streamlit>=1.36.0",
+    "streamlit-cookies-controller>=0.0.4",   # cookie-based UUID persistence
+
+    # ── Persistence ─────────────────────────────────────────────────────────
+    # sqlite3 is stdlib — no extra dep needed
+
+    # ── Logging ─────────────────────────────────────────────────────────────
+    "loguru>=0.7.2",
+
+    # ── Configuration ───────────────────────────────────────────────────────
+    "python-dotenv>=1.0.0",
+
+    # ── Feedback / database ─────────────────────────────────────────────────
+    "supabase>=2.3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.4.0",
+]
+eval = [
+    "ragas>=0.1.0",
+    "pandas>=2.0.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+ignore = ["E501"]

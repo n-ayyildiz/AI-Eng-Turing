@@ -1,0 +1,26 @@
+# Secrets — never commit
+.env
+.streamlit/secrets.toml
+
+# Runtime data
+chroma_db/
+exports/
+logs/
+*.db
+*.db-shm
+*.db-wal
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editor
+.vscode/
+.idea/
