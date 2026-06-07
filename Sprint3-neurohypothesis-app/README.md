@@ -39,8 +39,8 @@ At the end it **exports a PDF report** with APA-style citations.
 
 ```bash
 # 1. Clone and enter the repo
-git clone https://github.com/your-username/neurohypothesis.git
-cd neurohypothesis
+git clone https://github.com/n-ayyildiz/AI-Eng-Turing.git
+cd AI-Eng-Turing/Sprint3-neurohypothesis-app
 
 # 2. Create and activate a virtual environment
 python3 -m venv .venv
