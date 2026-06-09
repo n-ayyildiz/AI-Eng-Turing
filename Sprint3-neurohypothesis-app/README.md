@@ -1,5 +1,7 @@
 # Neurohypothesis
 
+Deployed at Streamlit: https://neurohypothesis.streamlit.app
+
 A neuroscience hypothesis generation agent that produces evidence-grounded research hypotheses from your uploaded PDFs, live PubMed search, or both — with a human-in-the-loop rating step after every hypothesis.
 
 Built with **Streamlit · LangGraph · OpenAI · ChromaDB** by the assistance of **Anthropic Claude**
